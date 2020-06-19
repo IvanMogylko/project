@@ -157,15 +157,15 @@ body {
     left: 0;
 }
 
-.s1_bottom-arrow {
+.s1_bottom_arrow {
     color: #ffe100;
     transform: rotate(90deg);
     font-size: 24px;
     display: block;
-    padding-bottom: 54px;
+    padding-bottom: 0px;
     margin: auto;
     font-weight: bold;
-    padding-right: 54px;
+    padding-right: 4px;
 }
 
 
@@ -338,6 +338,96 @@ body {
 
 .s4_list-item:last-child {
     display: none;
+}
+
+.s5 {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    background-color: #303030;
+    padding-top: 20px;
+}
+
+.s5_title {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 54px;
+    color: white;
+    padding-right: 75px;
+    letter-spacing: 1px;
+}
+
+.s5_list{
+    padding-bottom: 25px;
+    padding-top: 40px;
+    position: relative;
+
+}
+.s5_list:not(:first-child)::before{
+    position: absolute;
+    content: "";
+    width: 32px;
+    border: 1px solid #ffe100;
+    background-color: #ffe100;
+    top: 15px;
+    left: 54px;
+}
+
+.s5_list-item,
+.s5_list-contact {
+    position: relative;
+    padding-left: 95px;
+    margin-bottom: 20px;
+    padding-right: 25px;
+    font-size: 14px;
+    color: #8f8f8f;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+}
+
+.s5_list-item::before {
+    position: absolute;
+    content: "";
+    width: 32px;
+    height: 32px;
+    background: url(./img/icons/12.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 4px;
+    left: 50px;
+}
+
+.s5_list-contact {
+    padding-left: 54px;
+}
+
+.s5_list-contact a{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.s5_list-contact p {
+    font-size: 14px;
+    color: #7b7b7b;
+}
+
+.s5_list-contact:last-child p {
+    position: relative;
+    padding-left: 30px;
+}
+
+.s5_list-contact:last-child p::before {
+    position: absolute;
+    content: "";
+    width: 22px;
+    height: 22px;
+    background: url(./img/icons/viber.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 6px;
+    left: 0;
 }
 
 
