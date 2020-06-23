@@ -618,9 +618,47 @@ footer p {
         margin-right: 0;
     }
 
+    .ant-carousel-hider {
+        width: 768px;
+    }
 
-     
-    
+    .ant-carousel-element img {
+        width: 334px;
+        height: 240px;
+    }
 
+    .s4 {
+        align-items: flex-start;
+    }
+
+    .s4_title {
+        padding: 84px 62px 0 152px;
+        font-size: 23px;
+        text-align: left;
+    }
+
+    .s4_title::before {
+       background: url(./img/icons/_2.png);
+       background-repeat: no-repeat;
+       top: 58%;
+       left: 9%;
+       width: 77px;
+       height: 50px;
+       }
+
+       .s4_list {
+           padding: 38px 20px 80px 336px;
+       }
+
+       .s4_list::before {
+           height: 60%;
+           left: 306px;
+           top: 15%;
+           border: 1px solid #ffe100;
+       }
+
+       .s4_list-item:last-child {
+           display: block;
+       }
 
 }
