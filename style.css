@@ -661,4 +661,57 @@ footer p {
            display: block;
        }
 
+       .s5 {
+           flex-flow: row wrap;
+           padding-left: 129px;
+           padding-top: 79px;
+        }
+
+        .s5 div {
+            width: 246px;
+            margin-right: 20px;
+            margin-bottom: 40px;
+        }
+
+        .s5_list {
+            padding: 0;
+        }
+
+        .s5_list:not(:first-child){
+            padding-top: 42px;
+        }
+        
+        .s5_list:not(:first-child)::before {
+            left: 0;
+            top: 20px;
+        }
+        .s5_list-contact,
+        .s5_list-item {
+            padding: 0;
+            margin: 0;
+        }
+
+        .s5_list-item {
+            padding-left: 35px;
+        }
+
+        .s5_list-item::before {
+            top: 0;
+            left: 0;
+        }
+
+        .s5_title {
+            padding: 0;
+        }
+
+        .footer {
+            padding: 22px 0;
+        }
+        
+        .footer p {
+            font-size: 16pz;
+        }
+
+        
+
 }
