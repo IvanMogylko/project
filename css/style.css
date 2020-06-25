@@ -1,22 +1,22 @@
 @font-face {
     font-family: "OpenSans";
-    src: url(./fonts/OpenSans-Regular.eot) format("embedded-opentype"),
-    url(./fonts/OpenSans-Regular.ttf) format("truetype"),
-    url(./fonts/OpenSans-Regular.woff) format("woff");
+    src: url(../fonts/OpenSans-Regular.eot) format("embedded-opentype"),
+    url(../fonts/OpenSans-Regular.ttf) format("truetype"),
+    url(../fonts/OpenSans-Regular.woff) format("woff");
 
 }
 
 @font-face {
     font-family: "GothamPro-Bold";
-    src: url(./fonts/GothamPro-Bold.eot) format("embedded-opentype"),
-    url(./fonts/GothamPro-Bold.ttf) format("truetype"),
-    url(./fonts/GothamPro-Bold.woff) format("woff");
+    src: url(../fonts/GothamPro-Bold.eot) format("embedded-opentype"),
+    url(../fonts/GothamPro-Bold.ttf) format("truetype"),
+    url(../fonts/GothamPro-Bold.woff) format("woff");
 }
 
 @font-face {
     font-family: "OpenSans";
     src: 
-    url(./fonts/Coustard-Regular.ttf) format("truetype"),
+    url(../fonts/Coustard-Regular.ttf) format("truetype"),
 }
 
 *{
@@ -71,7 +71,7 @@ body {
 
 .logo::before {
     position: absolute;
-    background: url(./img/icons/sofa.png);
+    background: url(../img/icons/sofa.png);
     background-position: center;
     background-repeat: no-repeat;
     width: 46px;
@@ -107,7 +107,7 @@ body {
 .menu li:nth-child(2)::before {
     position: absolute;
     content: "";
-    background: url(./img/icons/viber.png);
+    background: url(../img/icons/viber.png);
     background-position: center;
     background-repeat: no-repeat;
     width: 22px;
@@ -187,7 +187,7 @@ body {
 
 .s1 {
     padding: 225px 20px 0;
-    background: #535353 url(./img/cлой2.png);
+    background: #535353 url(../img/cлой2.png);
     background-blend-mode: soft-light;
     display: flex;
     flex-flow: column;
@@ -230,7 +230,7 @@ body {
     content: "";
     width: 14px;
     height: 14px;
-    background: url(./img/icons/star.png);
+    background: url(../img/icons/star.png);
     background-position: center;
     background-repeat: no-repeat;
     left: 0;
@@ -291,23 +291,23 @@ body {
 }
 
 .s2_list-item:nth-child(1)::before {
-    background: yellow url(./img/icons/icon.png);
+    background: yellow url(../img/icons/icon.png);
     background-position: center;
     background-repeat: no-repeat;
 
 }
 .s2_list-item:nth-child(2)::before {
-    background: yellow url(./img/icons/icon1.png);
+    background: yellow url(../img/icons/icon1.png);
     background-position: center;
     background-repeat: no-repeat;}
 
 .s2_list-item:nth-child(3)::before {
-        background: yellow url(./img/icons/icon2.png);
+        background: yellow url(../img/icons/icon2.png);
         background-position: center;
         background-repeat: no-repeat;}
 
 .s2_list-item:nth-child(4)::before {
-    background: yellow url(./img/icons/icon3.png);
+    background: yellow url(../img/icons/icon3.png);
     background-position: center;
     background-repeat: no-repeat;}
 
@@ -403,7 +403,7 @@ body {
     content: "";
     width: 50px;
     height: 34px;
-    background: url(./img/icons/_\ .png);
+    background: url(../img/icons/_\ .png);
     top: 33%;
     left: 43%;
 }
@@ -427,7 +427,7 @@ body {
 }
 .s4_list-item {
     line-height: 30px;
-    color: #6c6e79;
+    color: rgb(0, 0, 0);
 }
 
 .s4_list-item:last-child {
@@ -485,7 +485,7 @@ body {
     content: "";
     width: 32px;
     height: 32px;
-    background: url(./img/icons/12.png);
+    background: url(../img/icons/12.png);
     background-position: center;
     background-repeat: no-repeat;
     top: 4px;
@@ -517,7 +517,7 @@ body {
     content: "";
     width: 22px;
     height: 22px;
-    background: url(./img/icons/viber.png);
+    background: url(../img/icons/viber.png);
     background-position: center;
     background-repeat: no-repeat;
     top: 6px;
@@ -646,7 +646,7 @@ footer p {
     }
 
     .s4_title::before {
-       background: url(./img/icons/_2.png);
+       background: url(../img/icons/_2.png);
        background-repeat: no-repeat;
        top: 62%;
        left: 9%;
@@ -839,7 +839,7 @@ footer p {
    
 
     .s4_title::before {
-       background: url(./img/icons/1234.png);
+       background: url(../img/icons/1234.png);
        background-repeat: no-repeat;
        top: 53%;
        left: 14%;
