@@ -2,15 +2,15 @@
 let name; //объявление переменой
 console.log(name); //undefine
 
-name = 'Aleksa' //инициализация переменой
+name = "Aleksa"; //инициализация переменой
 console.log(name); // Aleksa
 
-name = 'Aleksandra'; // переприсвоение значения
+name = "Aleksandra"; // переприсвоение значения
 console.log(name); // Aleksandra
 
 //const lastName - нельзя объявить без значения
-const lastName = 'Hrevtsova';
-console.log(lastName)
+const lastName = "Hrevtsova";
+console.log(lastName);
 
 //ТТИПЫ ДАНЫХ
 
@@ -32,16 +32,199 @@ console.log(typeof isOnline);
 
 //4 - Undefined
 let products;
-console.log(products)
-console.log(typeof products)
+console.log(products);
+console.log(typeof products);
 
 //5 - Null
 let cart = null;
 console.log(cart); //null
-console.log(typeof cart) // object ошыбка джава скрипта
+console.log(typeof cart); // object специальная ошыбка джава скрипта
 
 //СЛОЖНЫЕ
 //Object
+const obj = {};
+console.log(obj);
+const sasha = {
+  name: "Sasha",
+  lastName: "Hrevtsova",
+  age: 30,
+  hairColor: "brown",
+  married: false,
+  children: true,
+
+  toShowName() {
+    console.log(this.name);
+  },
+};
+console.log(sasha);
+sasha.name = "aleksandra";
+console.log(sasha);
+a
+sasha.toShowName();
+sasha.height = 172;
+console.log(sasha)
+
 //Array
+const arr = [];
+console.log(arr);
+
+const productslist = [
+  "apples",
+  { meat: "chicken", eggs: 10, bread: "white" },
+  null,
+];
+
+console.log(productslist);
+
+console.log(productslist[0]);
+console.log(productslist[1]);
+console.log(productslist[2]);
+
+productslist[0] = "oranges";
+
+console.log(productslist);
+
+//многомерные массивы
+const newArr = [
+  [1, 2, 3],
+  ["alpha", "beta", "gama"],
+  [undefined, null],
+];
+console.log(newArr);
+console.log(newArr[0][0]);
+console.log(newArr[0][1]);
+console.log(newArr[0][2]);
+
+console.log(newArr[1][0]);
+console.log(newArr[1][1]);
+console.log(newArr[1][2]);
+
+console.log(newArr[2][0]);
+console.log(newArr[2][1]);
+
 //Function
-//Symbol
+//function expression - функциональное выражение
+
+const funcExpression = function (a, b, c) {
+  console.log(a + b + c);
+  console.log("Hello!");
+  console.log("I`m a fuction Expression!");
+};
+funcExpression(1, 2, 3);
+
+const arrowFunc = (a, b, c) => {
+  console.log(a + b - c);
+};
+arrowFunc(19, 45, 25);
+
+function funcDeclaration(a, b, c) {
+  console.log(a * b * c);
+}
+
+funcDeclaration(2, 4, 5);
+
+console.log(5 > 7);
+console.log(4 > 2);
+console.log(3 >= 3);
+console.log(3 >= 4);
+//строгое равенство
+console.log(5 === "5"); // false
+console.log(true === 1); // false
+//не строгое равенство
+console.log(5 == "5"); // true
+console.log(5 == "4"); //false
+console.log(true == 1); //true
+console.log(false == 0); // true
+console.log(undefined == 0); // false
+console.log(undefined == 1); // false
+console.log(null == 0);
+
+console.log(5 !== "5"); // строгое не равенство true
+
+console.log(5 != "5"); // false не строгое не равенство
+console.log(5 != "4"); // true
+
+// ! - знак отрецания или переворачивает даные
+console.log(!true); // false
+console.log(!false); //true
+
+//преобразование типов
+// к строке
+let num = 12;
+console.log(num);
+console.log(typeof num);
+
+num = num + "";
+console.log(num);
+console.log(typeof num);
+
+let newNum = true;
+console.log(newNum);
+console.log(typeof newNum);
+
+newNum = String(newNum);
+console.log(newNum);
+console.log(typeof newNum);
+
+let stringNum = "34";
+console.log(stringNum);
+console.log(typeof stringNum);
+
+stringNum = +stringNum;
+console.log(stringNum);
+console.log(typeof stringNum);
+
+let boolNum = true;
+console.log(boolNum);
+console.log(typeof boolNum);
+
+boolNum = Number(boolNum);
+console.log(boolNum);
+console.log(typeof boolNum);
+
+let numValue = 1;
+console.log(numValue);
+console.log(typeof numValue);
+
+numValue = Boolean(numValue);
+console.log(numValue);
+console.log(typeof numValue);
+
+// folsy values js
+console.log(Boolean(0));//false
+console.log(Boolean(""));//false
+console.log(Boolean(null));//false
+console.log(Boolean(undefined));//false
+console.log(Boolean(NaN));//false
+console.log(Boolean(false));//false
+
+
+console.log(Boolean(1));//true
+console.log(Boolean(" "));//true
+console.log(Boolean(' '));//true
+console.log(Boolean(` `));//true
+console.log(Boolean(Infinity));//true
+console.log(Boolean(true));//true
+
+
+//&& - логическое и
+console.log(1 && true && 100);
+console.log(1 && true);
+console.log(0 && true);
+console.log(false && true);
+console.log(1 && 0 && true && false);
+console.log(1 && false && true && 0);
+// || - логическое или
+console.log(1 || true || 100);
+console.log(1 || true);
+console.log(0 || true);
+console.log(false || true);
+console.log("" || 0 || undefined || false);
+console.log(NaN || false || null || 0);
+// ! - логическое не
+console.log(!1); 
+console.log(!0); 
+console.log(!""); 
+console.log(!NaN);
+console.log(!undefined);
+console.log(!null)

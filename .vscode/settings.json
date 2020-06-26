@@ -1,0 +1,31 @@
+{
+    "editor.fontSize": 12,
+    "git.autofetch": true,
+    "window.zoomLevel": 1,
+    "files.autoSave": "afterDelay",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "files.associations": {
+      "*.js": "javascriptreact"
+    },
+    "breadcrumbs.enabled": true,
+    "workbench.iconTheme": "vs-minimal",
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+      "breadcrumbs.showFiles": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "liveServer.settings.donotVerifyTags": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "html.format.unformatted": ""
+  }
