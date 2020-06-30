@@ -59,7 +59,7 @@ const sasha = {
 console.log(sasha);
 sasha.name = "aleksandra";
 console.log(sasha);
-a
+
 sasha.toShowName();
 sasha.height = 172;
 console.log(sasha)
@@ -228,3 +228,90 @@ console.log(!"");
 console.log(!NaN);
 console.log(!undefined);
 console.log(!null)
+
+
+
+// let msg = confirm('are you ready?')
+// console.log(msg)
+
+// let greet = alert('Welcom!')
+// console.log(greet)
+
+
+// let userData = prompt("Enter your name please")
+// console.log(userData)
+
+//ВЕТЛЕНИЯ
+if(1 > 0) {
+  console.log('Hellow World!');
+}
+
+
+// let message = 'Добро пожаловать';
+// let enteredData = prompt('Введите число от 1 до 5');
+
+
+// if(enteredData >= 1 && enteredData <= 5) {
+//   console.log('Спасибо вы вели подходящее число');
+// } else {
+//   console.log('Вы ввели не подходящее значение');
+// }
+
+
+
+
+for (let i = 0; i <= 10; i +=1) {
+    console.log(`Интерация №${i+1} - ${i}`);
+}
+
+
+const results = [1, 11, 23, 45, 32, 78, 988, 45];
+console.log(results);
+console.log("длина массива", results.length);
+
+for (let i = 0; i < results.length; i += 1){
+    if (results[i] >= 10) {
+      console.log("трехзначный элемент", results[i])
+    } else if ( results[i] >= 10 && results[i] < 100){
+      console.log("двухзначный элемент", results[i]);
+    }else {
+      console.log("это число однозначное");
+    }
+}
+
+
+
+const projectBody = document.querySelector('body');
+console.log(projectBody);
+console.dir(projectBody);
+
+
+
+const headerWrapper = document.querySelector('.header_wrapper');
+console.log(headerWrapper);
+console.dir(headerWrapper);
+
+
+console.log(headerWrapper.title);
+headerWrapper.title = "Hello!";
+console.log(headerWrapper.title);
+
+// const logo = document.querySelector('.logo')
+// console.dir(logo);
+// console.log(logo.textContent);
+
+const logo = document.getElementById('main-logo');
+console.log(logo);
+console.dir(logo);
+
+logo.textContent = "Photo diary";
+logo.style.fontSize = '36px';
+logo.classList.add('example');
+
+
+
+const navMenu = document.querySelector('ul[data-action="action"]');
+console.log(navMenu);
+console.dir(navMenu);
+navMenu.style.background = "green";
+navMenu.style.margin = "10px";

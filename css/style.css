@@ -36,6 +36,12 @@ a {
     color: black
 }
 
+.example {
+    background-color: hotpink;
+    color: white;
+    font-size: large;
+}
+
 body {
     background: rgb(197, 196, 196);
 }

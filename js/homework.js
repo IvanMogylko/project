@@ -40,3 +40,20 @@ const funcExpression = function (juice, watermalon, bread) {
     console.log(juice + watermalon + bread);
   };
   funcExpression(20, 30, 10);
+
+
+  let message = 'Добро пожаловать';
+  let greet = prompt('Введите ваше имя');
+  
+  
+  if(greet) {
+    alert(`здравствуйте: ${greet}`);
+  } else {
+    alert('До свидания');
+  }
+
+
+
+  
+
+
