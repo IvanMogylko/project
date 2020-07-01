@@ -1,24 +1,75 @@
+"use strict";
 
-const projectS3 = document.querySelector(".s3 ");
-console.log(projectS3);
-console.dir(projectS3);
+const Ant = function(carouselId){
+    let carouselId = document.getElementById(carouselId);
+    if (carouselId){
+        this.carouselRoot = carouselId;
+    } else{
+        this.carouselRoot = document.querySelector(".ant-carousel");
+    }
+    
+    this.list = this.carouselRoot.querySelector(".ant-carousel-list");
 
-const projectDiv = document.querySelector(".ant-carousel-hider");
-console.log(projectDiv);
-console.dir(projectDiv);
+    this.items = this.carouselRoot.querySelectorAll(".ant-carousel-element");
 
-const projectDivLeft = document.querySelector(".ant-carousel-arrow-left");
-console.log(projectDivLeft);
-console.dir(projectDivLeft);
+    this.firstItem = this.carouselRoot.querySelector(".ant-carousel-element");
 
-const projectUl = document.querySelector(".ant-carousel-list");
-console.log(projectUl);
-console.dir(projectUl);
+    this.left_arrow = this.carouselRoot.querySelector(".ant-carousel-arrow-left");
 
-const gprojectDivRight = document.querySelector(".ant-carousel-arrow-right");
-console.log(gprojectDivRight);
-console.dir(gprojectDivRight);
+    this.right_arrow = this.carouselRoot.querySelector(".ant-carousel-arrow-right");
 
-const projectDivDots = document.querySelector(".ant-carousel-dots");
-console.log(projectDivDots);
-console.dir(projectDivDots);
+    this.dots = this.carouselRoot.querySelector(".ant-carousel-dots");
+
+};
+Ant.defaults = {
+    visibleItem: 1,
+    loop: true,
+    auto: true,
+    interval: 2000,
+    speed: 1500,
+    touch: true,
+    arrows: true,
+    dots: true,
+};
+
+Ant.prototype.elementPrev = function(num){
+    num = num || 1;
+
+    if (this.options.dots) this.dotOn(this.currentElement);
+    this.currentElement -= num;
+    if(this. currentElement < 0) this.currentElement = this.visibleItem - 1;
+    if (this.options.dots) this.dotOff(this.currentElement);
+
+    if (!this.options.loop) {
+        this.currentOffset += this.elemWidht * num;
+        this.list.style.marginLeft = this.currentOffset + "px";
+        if(this.currentElement == 0) {
+            this.left_arrow.style.display = "none";
+            this.touchPrev = false;
+        }
+        this.right_arrow.style.display = "block";
+        this.touchNext = true;
+    }else {
+        let elem, buf, this$ = this;
+
+        for (let i = 0; i < num; i ++) {
+            //записываем сылку на последний елемент списка в переменную elem
+            elem = this.list.lastElementChild;
+            //саздаем глубокий (полный) клон последнего елемента списка
+            buf = elem.cloneNode(true);
+            // встраиваем склонированый последний елемент списка в свмое начало списка
+            this.list.insertBefore(buf, this.list.firstElementChild)
+            // удаляем последний елемент списка из которого зделали клон
+            elem.remuve();
+        }
+        this.list.style.cssText = "transition:margin " + this.options.speed + "ms ease;";
+        this.list.style.marginLeft = "0px";
+        setTimeout(() => {
+            this$.list.style.cssText = "transition:none";
+        }, this.options.speed);
+    }
+}
+
+Ant.prototype.elementNext = function(num){
+    
+}

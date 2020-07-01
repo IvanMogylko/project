@@ -55,5 +55,28 @@ const funcExpression = function (juice, watermalon, bread) {
 
 
   
+  //s3
+// const S3 = document.querySelector(".s3 ");
+
+
+// //div-hider
+// const Div = document.querySelector(".ant-carousel-hider");
+
+
+// //div-arrow-left
+// const DivLeft = document.querySelector(".ant-carousel-arrow-left");
+
+
+// //ul
+// const Ul = document.querySelector(".ant-carousel-list");
+
+
+// //div-arrow-right
+// const DivRight = document.querySelector(".ant-carousel-arrow-right");
+
+
+// //div-dots
+// const DivDots = document.querySelector(".ant-carousel-dots");
+
 
 
