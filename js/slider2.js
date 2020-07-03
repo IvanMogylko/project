@@ -16,7 +16,8 @@ const Ant = function (crslId) {
   this.leftArrow = this.crslRoot.querySelector("div.ant-carousel-arrow-left");
   this.rightArrow = this.crslRoot.querySelector("div.ant-carousel-arrow-right");
   this.indicatorDots = this.crslRoot.querySelector(".ant-carousel-dots");
-console.log(this.indicatorDots);
+
+  // запуск слайдера
   this.options = Ant.defaults;
   Ant.initialize(this);
 };
@@ -75,7 +76,7 @@ Ant.prototype.elemPrev = function (num) {
     }, this.options.speed);
   }
 };
-
+// в видео 04 06
 Ant.prototype.elemNext = function (num) {
   num = num || 1;
 
@@ -125,23 +126,27 @@ Ant.prototype.dotOff = function (num) {
     "background-color:#556; cursor:default;";
 };
 
+// 05 06
 Ant.initialize = function (that) {
-  that.elemCount = that.crslElements.length;
-  that.dotsVisible = that.elemCount;
+  // Constants
+  that.elemCount = that.crslElements.length; // Количество элементов
+  that.dotsVisible = that.elemCount; // Число видимых точек
   let elemStyle = window.getComputedStyle(that.crslElemFirst);
   that.elemWidth =
-    that.crslElemFirst.offsetWidth +
+    that.crslElemFirst.offsetWidth + // Ширина элемента (без margin)
     parseInt(elemStyle.marginLeft) +
     parseInt(elemStyle.marginRight);
 
+  // Variables
   that.currentElement = 0;
   that.currentOffset = 0;
   that.touchPrev = true;
   that.touchNext = true;
   let xTouch, yTouch, xDiff, yDiff, stTime, mvTime;
   let bgTime = getTime();
-  // console.log(bgTime)
+  // console.log(bgTime);
 
+  // Functions
   function getTime() {
     return new Date().getTime();
   }
@@ -156,125 +161,134 @@ Ant.initialize = function (that) {
     }, that.options.interval);
   }
 
-
-if (that.elemCount <= that.options.elemVisible) {
-  that.optoins.auto = false;
-  that.optoins.touch = false;
-  that.optoins.arrows = false;
-  that.optoins.dots = false;
-  that.leftArrow.style.display = "none";
-  that.rightArrow.style.display = "none";
-}
-
-if (!that.options.loop) {
-  that.dotsVisible = that.elemCount - that.options.elemVisible + 1;
-  that.leftArrow.style.display = "none";
-  that.touchPrev = false;
-  that.options.auto = false;
-} else if (that.options.auto) {
-  setAutoScroll();
-  that.crslList.addEventListener(
-    "mouseenter",
-    function () {
-      clearInterval(that.autoScroll);
-    },
-    false
-  );
-  that.crslList.addEventListener("mouseleave", setAutoScroll, false);
-}
-
-if (that.options.touch) {
-  that.crslList.addEventListener(
-    "touchstart",
-    function (e) {
-      xTouch = parseInt(e.touches[0].clientX);
-      yTouch = parseInt(e.touches[0].clientY);
-      stTime = getTime();
-    },
-    false
-  );
-  that.crslList.addEventListener(
-    "touchmove",
-    function (e) {
-      if (!xTouch || !yTouch) return;
-      xDiff = xTouch - parseInt(e.touches[0].clientX);
-      yDiff = yTouch - parseInt(e.touches[0].clientY);
-      mvTime = getTime();
-      if (
-        Math.abs(xDiff) > 15 &&
-        Math.abs(xDiff) > Math.abs(yDiff) &&
-        mvTime - stTime < 75
-      ) {
-        stTime = 0;
-        if (that.touchNext && xDiff > 0) {
-          bgTime = mvTime;
-          that.elemNext();
-        } else if (that.touchPrev && XDiff < 0) {
-          bgTime = mvTime;
-          that.elemPrev();
-        }
-      }
-    },
-    false
-  );
-}
-
-if (that.options.arrows) {
-  if (!that.options.loop)
-    that.crslList.style.cssText =
-      "transition:margin" + that.options.speed + "ms ease";
-  that.leftArrow.addEventListener(
-    "click",
-    function () {
-      let fnTime = getTime();
-      if (fnTime - bgTime > that.options.speed) {
-        bgTime = fnTime;
-          that.elemPrev();
-      }
-    },
-    false
-  );
-  that.rightArrow.addEventListener(
-    "click",
-    function () {
-      let fnTime = getTime();
-      if (fnTime - bgTime > that.options.speed) {
-        bgTime = fnTime;
-          that.elemNext();
-      }
-    },
-    false
-  );
-} else {
-  that.leftArrow.style.display = "none";
-  that.rightArrow.style.display = "none";
-}
-
-if (that.options.dots) {
-  let sum = "",
-    diffNum;
-  for (let i = 0; i < that.dotsVisible; i++) {
-    sum += '<span class="ant-dot"></span>';
+  // Start initialization
+  if (that.elemCount <= that.options.elemVisible) {
+    // Отключить навигацию
+    that.options.auto = false;
+    that.options.touch = false;
+    that.options.arrows = false;
+    that.options.dots = false;
+    that.leftArrow.style.display = "none";
+    that.rightArrow.style.display = "none";
   }
-  that.indicatorDots.innerHTML = sum;
-  that.indicatorDotsAll = that.crslRoot.querySelectorAll("span.ant-dot");
-  for (let n = 0; n < that.dotsVisible; n++) {
-    that.indicatorDotsAll[n].addEventListener(
+
+  if (!that.options.loop) {
+    // если нет цикла - уточнить количество точек
+    that.dotsVisible = that.elemCount - that.options.elemVisible + 1;
+    that.leftArrow.style.display = "none"; // отключить левую стрелку
+    that.touchPrev = false; // отключить прокрутку прикосновением вправо
+    that.options.auto = false; // отключить автопркрутку
+  } else if (that.options.auto) {
+    // инициализация автопрокруки
+    setAutoScroll();
+    // Остановка прокрутки при наведении мыши на элемент
+    that.crslList.addEventListener(
+      "mouseenter",
+      function () {
+        clearInterval(that.autoScroll);
+      },
+      false
+    );
+    that.crslList.addEventListener("mouseleave", setAutoScroll, false);
+  }
+
+  if (that.options.touch) {
+    // инициализация прокрутки прикосновением
+    that.crslList.addEventListener(
+      "touchstart",
+      function (e) {
+        xTouch = parseInt(e.touches[0].clientX);
+        yTouch = parseInt(e.touches[0].clientY);
+        stTime = getTime();
+      },
+      false
+    );
+    that.crslList.addEventListener(
+      "touchmove",
+      function (e) {
+        if (!xTouch || !yTouch) return;
+        xDiff = xTouch - parseInt(e.touches[0].clientX);
+        yDiff = yTouch - parseInt(e.touches[0].clientY);
+        mvTime = getTime();
+        if (
+          Math.abs(xDiff) > 15 &&
+          Math.abs(xDiff) > Math.abs(yDiff) &&
+          mvTime - stTime < 75
+        ) {
+          stTime = 0;
+          if (that.touchNext && xDiff > 0) {
+            bgTime = mvTime;
+            that.elemNext();
+          } else if (that.touchPrev && xDiff < 0) {
+            bgTime = mvTime;
+            that.elemPrev();
+          }
+        }
+      },
+      false
+    );
+  }
+
+  if (that.options.arrows) {
+    // инициализация стрелок
+    if (!that.options.loop)
+      that.crslList.style.cssText =
+        "transition:margin " + that.options.speed + "ms ease;";
+    that.leftArrow.addEventListener(
       "click",
       function () {
-        diffNum = Math.abs(n - that.currentElement);
-         if (n < that.currentEement) {
+        let fnTime = getTime();
+        if (fnTime - bgTime > that.options.speed) {
+          bgTime = fnTime;
+          that.elemPrev();
+        }
+      },
+      false
+    );
+    that.rightArrow.addEventListener(
+      "click",
+      function () {
+        let fnTime = getTime();
+        if (fnTime - bgTime > that.options.speed) {
+          bgTime = fnTime;
+          that.elemNext();
+        }
+      },
+      false
+    );
+  } else {
+    that.leftArrow.style.display = "none";
+    that.rightArrow.style.display = "none";
+  }
+
+  if (that.options.dots) {
+    // инициализация индикаторных точек
+    let sum = "",
+      diffNum;
+    for (let i = 0; i < that.dotsVisible; i++) {
+      sum += '<span class="ant-dot"></span>';
+    }
+    that.indicatorDots.innerHTML = sum;
+    that.indicatorDotsAll = that.crslRoot.querySelectorAll("span.ant-dot");
+    // Назначаем точкам обработчик события 'click'
+    for (let n = 0; n < that.dotsVisible; n++) {
+      that.indicatorDotsAll[n].addEventListener(
+        "click",
+        function () {
+          diffNum = Math.abs(n - that.currentElement);
+          if (n < that.currentElement) {
             bgTime = getTime();
             that.elemPrev(diffNum);
           } else if (n > that.currentElement) {
             bgTime = getTime();
             that.elemNext(diffNum);
           }
+          // Если n == that.currentElement ничего не делаем
         },
         false
       );
     }
-    that.dotOff(0);
+    that.dotOff(0); // точка[0] выключена, остальные включены
     for (let i = 1; i < that.dotsVisible; i++) {
       that.dotOn(i);
     }

@@ -336,6 +336,7 @@ body {
     background: #535353;
     width: auto;
     padding: 100px 0;
+    position: relative;
 }
 
 .ant-carousel-hider {
@@ -344,6 +345,8 @@ body {
     justify-content: flex-start;
     width: 320px;
     overflow: hidden;
+    margin: 0 20px;
+    position: relative;
 }
 
 .ant-carousel-list {
@@ -354,7 +357,7 @@ body {
 }
 
 .ant-carousel-element {
-    margin: 20px;
+    margin-right: 20px;
 }
 
 .ant-carousel-element img{
@@ -379,6 +382,68 @@ body {
     background-color: #ffe100;
     top: 10px;
     left: -5px;
+}
+
+div.ant-carousel-arrow-left,
+div.ant-carousel-arrow-right {
+    width: 24px;
+    height: 50px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 101;
+    top: 38%;
+    padding: 15px;
+}
+
+div.ant-carousel-arrow-left:hover,
+div.ant-carousel-arrow-right:hover {
+    opacity: 1;
+}
+
+/* левая стрелка слайдера */
+div.ant-carousel-arrow-left {
+    left: 0px;
+    display: block;
+    background: #53535383 url("http://pvbk.spb.ru/inc/carousel/ant-files/ant-arrow-left.png") no-repeat;
+    background-position: center;
+}
+
+/* правая стрелка слайдера */
+div.ant-carousel-arrow-right {
+    right: 0px;
+    display: block;
+    background: #53535383 url("http://pvbk.spb.ru/inc/carousel/ant-files/ant-arrow-right.png") no-repeat;
+    background-position: center;
+}
+
+/* ховер левой стрелки слайдера  */
+div.ant-carousel-arrow-left:hover,
+div.ant-carousel-arrow-right:hover {
+    opacity: 1;
+}
+
+/* контейнер с точками слайдера */
+div.ant-carousel-dots {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: 38px;
+    z-index: 30;
+    text-align: center;
+    background-color: #ffe100;
+}
+
+/* точки слайдера */
+span.ant-dot {
+    width: 10px;
+    height: 10px;
+    margin: 5px 7px;
+    padding: 0;
+    display: inline-block;
+    background-color: #ffe100;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .s4 {
@@ -634,6 +699,7 @@ footer p {
 
     .ant-carousel-hider {
         width: 768px;
+        margin: 0 40px;
     }
 
     .ant-carousel-element img {
@@ -967,8 +1033,5 @@ footer p {
      .footer p {
          font-size: 14px;
      }
-
-       
-    
 
 }
